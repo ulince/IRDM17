@@ -22,11 +22,23 @@ features_antoine.py - Use the pickle from counting_words_all_and_save.py to comp
 
 features_antoine2.py - Use the pickle from word2vecAntoine to create the word2vec home made feature (see report) 
 
+AntCombFeatures.py - Concatenate all Antoine's features by columns and form a table 
 
+filter_stTokens.py - Create pickles file of full search term, search term phrases positionally prior and post stop words
+
+createNounFeat.py - Create the noun features and 'filter' search token based on Weng's case
+
+nGramFuzzFeat.py - Generate N-gram Fuzzy String feature and Noun Feature
+
+kamiCombFeatures.py - Generate Kamakshi's features
 
 ###### Feature Combination
 
 The code in this folder takes the reslts of the of the feature folder and merge them into one big sparse matrix that can then be used in the model folder to test the different models. 
+
+mergeBigTable.py - Merge all column features into a big table
+
+formMatrix.py - Form a matrix pickle file using the table generated above to feed into the model
 
 ###### Model
 
@@ -40,8 +52,11 @@ You can see that some models have been comented out, to test different model jus
 
 Both WideAndDeepModel.ipynb  and the cross_validation give the exam same input and take as an output the same input. 
 
-The picle object "the_matrix_3feat.p" and others are the input we can use for the models. They are the output of the other section preparing the data
+The pickle object "the_matrix_3feat.p" and others are the input we can use for the models. They are the output of the other section preparing the data
 and computing the feature, and combining them into one matrix. We have three variant including all to zero of Ulysses features. This because
 they were to heave for some pre-analysis (with same results) so we didn't include them in all (cf group report). 
 
 To test the model you can both change the model commented out and the number of Ulysses feature used. 
+
+Weng's model on AdaBoost is added later and therefore run independently as adaBoostScoreFunc.py with only slight alteration compared to Antoine's version. drawPlot.py is the python file to generate two plots illustrate the results using hard coded earlier recorded averaged data.
+
