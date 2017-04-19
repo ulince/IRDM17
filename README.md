@@ -7,12 +7,28 @@ In the data folder, one will find the scripts to merge the data_csv file into on
 
 The features folder contains the diffrent script to pre-compute the different features and save them into one file.
 
+###### Feature 
+The code in this folder takes the result of the data folder (after stemming and spell checking) and compute all the features
+
+IMPORTANT: You can't run any of those code if you don't first run the code in the data folder and put the obtained pickles in the same directory.
+
+FeatureExtraction.ipynb - compute the main language modeling bag of words technique using toolboxes
+
+counting_words_all_and_save.py - Create a dictionary of word frequency and reverse dicitonary and save them as a pickle necessary to compute tf-idf and other features 
+
+word2vecAntoine.py - create the word2vec vectorial space used for the features_antoine2.py
+
+features_antoine.py - Use the pickle from counting_words_all_and_save.py to compute tf-idf and variant (see report)
+
+features_antoine2.py - Use the pickle from word2vecAntoine to create the word2vec home made feature (see report) 
 
 
 
+###### Feature Combination
 
+The code in this folder takes the reslts of the of the feature folder and merge them into one big sparse matrix that can then be used in the model folder to test the different models. 
 
-#####Model folder
+###### Model
 
 In this folder you will find the procedure to test the different model. WideAndDeepModel.ipynb is a variant opf the cross_validation_procedure.
 
